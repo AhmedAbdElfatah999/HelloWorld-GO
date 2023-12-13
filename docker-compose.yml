@@ -1,0 +1,31 @@
+version: '3'
+services:
+  postgres-db:
+      container_name: postgres_container
+      restart: always
+      image: postgres:latest
+      environment:
+        POSTGRES_DB: marketplace
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: pass123
+      networks:
+        - tester-network
+      ports:
+        - "5432:5432"
+      volumes:
+        - /path/to/local/data:/var/lib/postgresql/data
+  go-app:
+      container_name: marketplace
+      image: marketplace:latest
+      ports:
+        - "8080:8080"
+      networks:
+        - tester-network
+      depends_on:
+        - postgres-db
+
+  
+
+networks:
+  tester-network:
+    driver: bridge

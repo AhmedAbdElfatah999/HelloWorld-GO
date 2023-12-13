@@ -10,11 +10,11 @@ import (
 	"HelloWorld/models"
 )
 const (
-	host     = "localhost"
-	port     = 5432
-	user     = "postgres"
-	password = "pass123"
-	dbname   = "marketplace"
+    host     = "postgres-db"
+    port     = 5432
+    user     = "postgres"
+    password = "pass123"
+    dbname   = "marketplace"
 )
 var (
 	Instance *sql.DB
@@ -23,22 +23,22 @@ var (
 
 // InitDB initializes the database connection
 func InitDB() (*sql.DB, error) {
-	var err error
-	once.Do(func() {
-		connStr := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
-			host, port, user, password, dbname)
+    var err error
+    once.Do(func() {
+        connStr := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
+            host, port, user, password, dbname)
 
-		Instance, err = sql.Open("postgres", connStr)
-		if err != nil {
-			log.Fatal(err)
-		}
+        Instance, err = sql.Open("postgres", connStr)
+        if err != nil {
+            return
+        }
 
-		if err := Instance.Ping(); err != nil {
-			log.Fatal(err)
-		}
-	})
+        if err := Instance.Ping(); err != nil {
+            return
+        }
+    })
 
-	return Instance, err
+    return Instance, err
 }
 
 // SetDBInstance sets the global database instance
