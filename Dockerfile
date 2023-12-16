@@ -1,25 +1,23 @@
-# Use an official Go runtime as a parent image
-FROM golang:latest
+# Use an official Golang runtime as a parent image
+FROM golang:1.21.4
 
 # Set the working directory inside the container
-WORKDIR /app
+WORKDIR /go/src/app
 
 # Copy the local package files to the container's workspace
-COPY . .
+COPY ./main .
 
-# Download and install any required dependencies
-RUN go mod download
+# Download and install any required third-party dependencies
+#RUN go get -d -v ./...
 
-# Install the wait-for-it script
-ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /app/wait-for-it.sh
-RUN chmod +x /app/wait-for-it.sh
+# Install Echo framework
+#RUN go get -u github.com/labstack/echo/v4
 
 # Build the Go application
-RUN go build -o main .
+#RUN go build -o main .
 
-# Expose port 8080 to the outside world
-EXPOSE 8080
+# Expose port 3030 to the outside world
+EXPOSE 3030
 
-# Command to run the executable with wait-for-it
-CMD ["./wait-for-it.sh", "postgres-db:5432", "--timeout=30", "--", "./main"]
-
+# Command to run the executable
+CMD ["./main"]

@@ -3,14 +3,13 @@ package db
 import (
 	"database/sql"
 	"fmt"
-	"log"
 	"sync"
 
 	_ "github.com/lib/pq"
 	"HelloWorld/models"
 )
 const (
-    host     = "postgres-db"
+    host     = "postgresContainer2"
     port     = 5432
     user     = "postgres"
     password = "pass123"
@@ -30,10 +29,12 @@ func InitDB() (*sql.DB, error) {
 
         Instance, err = sql.Open("postgres", connStr)
         if err != nil {
+			fmt.Println("DDDDD  ",host)
             return
         }
 
         if err := Instance.Ping(); err != nil {
+			
             return
         }
     })
