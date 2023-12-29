@@ -1,0 +1,45 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Docker
+      uses: docker/setup-buildx-action@v1
+
+    - name: Build Docker image
+      run: |
+        docker build -t hooramer24/marketplace:latest .
+        docker tag hooramer24/marketplace:latest hooramer24/marketplace:$(date +%Y%m%d%H%M%S)
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Log in to Docker Hub
+      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+
+    - name: Push Docker image to Docker Hub
+      run: docker push hooramer24/marketplace:latest
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    needs: build
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Deploy to production
+      run: |
+        # Add your deployment script or commands here
+        # This could be deploying to a server, a cloud platform, etc.
