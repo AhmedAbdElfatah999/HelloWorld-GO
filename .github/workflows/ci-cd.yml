@@ -18,8 +18,8 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t hooramer24/marketplace:latest .
-        docker tag hooramer24/marketplace:latest hooramer24/marketplace:$(date +%Y%m%d%H%M%S)
+        docker build -t hooramer/marketplace:latest .
+        docker tag hooramer/marketplace:latest hooramer/marketplace:$(date +%Y%m%d%H%M%S)
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
@@ -31,7 +31,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Push Docker image to Docker Hub
-      run: docker push hooramer24/marketplace:latest
+      run: docker push hooramer/marketplace:latest
 
   deploy:
     runs-on: ubuntu-latest
