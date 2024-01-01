@@ -1,0 +1,25 @@
+name: Deploy to Production
+
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types:
+      - completed
+
+jobs:
+  deploy-prod-trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Deploy to Production
+        run: echo "Trigger Deploy to Production"
+
+  deploy-prod:
+    runs-on: ubuntu-latest
+    needs: deploy-prod-trigger
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Deploy to Production
+        run: |
+          # Add deployment to production commands here
