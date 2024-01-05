@@ -8,11 +8,10 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello 1 from main.go")
+
 	// Initialize the database
 	dbInstance, err := db.InitDB()
 	if err != nil {
-		fmt.Println("Hello 2 from main.go")
 		// Handle the error, log, and exit if necessary
 		panic(err)
 	}

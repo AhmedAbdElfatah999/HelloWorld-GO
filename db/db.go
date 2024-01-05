@@ -29,7 +29,6 @@ func InitDB() (*sql.DB, error) {
 
         Instance, err = sql.Open("postgres", connStr)
         if err != nil {
-			fmt.Println("DDDDD  ",host)
             return
         }
 

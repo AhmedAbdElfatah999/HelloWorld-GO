@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Deploy to Production
-        run: echo "Trigger Deploy to Production"
+        run: echo "Trigger Deploy to Production" 
 
   deploy-prod:
     runs-on: ubuntu-latest
