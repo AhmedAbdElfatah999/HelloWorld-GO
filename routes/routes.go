@@ -24,7 +24,7 @@ if err != nil {
 productHandler := handlers.NewHandler(dbInstance, sqlBuilder)
 productRouter := api.NewProductRouter(productHandler)
 	// Product routes
-	e.POST("/products", productRouter.CreateProduct)
+	e.POST("/products", productRouter.Create)
 	e.GET("/products", productRouter.ReadAll)
 	// e.GET("/products/:id", handlers.ReadProductByIDHandler)
 	// e.PUT("/products/:id", handlers.UpdateProductHandler)

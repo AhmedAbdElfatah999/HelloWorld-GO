@@ -22,8 +22,7 @@ func NewProductRouter(productMgr productManager) *ProductRouter {
 	}
 }
 
-// CreateProduct
-func (p *ProductRouter) CreateProduct(c echo.Context) error {
+func (p *ProductRouter) Create(c echo.Context) error {
 	// note: tight coupling example
 	//mgr := product2.NewManager()
 

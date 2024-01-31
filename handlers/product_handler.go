@@ -1,12 +1,10 @@
 package handlers
 
 import (
-	"net/http"
-	"strconv"
 
+	"strconv"
 	"github.com/labstack/echo/v4"
 	"HelloWorld/models"
-	"HelloWorld/db"
 	"database/sql"
 )
 
