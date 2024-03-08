@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tracing", "tracing", "{2541E1A9-64D7-4167-87A3-CE5E89517A08}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "applications-go", "applications-go", "{C0D2CBDB-6644-45F3-A837-FA26FD1607FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "videos-api-netcore", "videos-api-netcore", "{C3CFE3F5-A50D-486B-9C4C-2C7BB85AC681}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "videos-api", "tracing\applications-go\videos-api-netcore\src\videos-api.csproj", "{2B97EF1C-A26F-42C1-AF07-0C681DFB429F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B97EF1C-A26F-42C1-AF07-0C681DFB429F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B97EF1C-A26F-42C1-AF07-0C681DFB429F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B97EF1C-A26F-42C1-AF07-0C681DFB429F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B97EF1C-A26F-42C1-AF07-0C681DFB429F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C0D2CBDB-6644-45F3-A837-FA26FD1607FE} = {2541E1A9-64D7-4167-87A3-CE5E89517A08}
+		{C3CFE3F5-A50D-486B-9C4C-2C7BB85AC681} = {C0D2CBDB-6644-45F3-A837-FA26FD1607FE}
+		{2B97EF1C-A26F-42C1-AF07-0C681DFB429F} = {C3CFE3F5-A50D-486B-9C4C-2C7BB85AC681}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD378187-6C0E-46AC-973A-D95273348B5D}
+	EndGlobalSection
+EndGlobal
